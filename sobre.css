@@ -1,0 +1,231 @@
+/* ===== ESTILOS ESPECÍFICOS DA PÁGINA SOBRE ===== */
+
+.sobre-body {
+  min-height: 100vh;
+  font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #ffffff;
+  background: #000;
+  background-image: url("imagem/fundo.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* Overlay escurecido para dar contraste */
+.sobre-body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.9)
+  );
+  z-index: -1;
+}
+
+/* ======== SOBRE - QUEM SOMOS ======== */
+
+/* Fundo herda do body global */
+.sobre-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 140px 16px 120px;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr);
+  gap: 40px;
+}
+
+/* HERO (título) */
+.sobre-hero {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sobre-hero h1 {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.sobre-subtitle {
+  margin-top: 8px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 1px;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.sobre-content {
+  display: contents; /* Mantém as duas colunas do grid */
+}
+
+.sobre-text {
+  background: radial-gradient(circle at top left, rgba(52, 62, 96, 0.7) 0, rgba(18, 22, 40, 0.8) 40%, rgba(5, 8, 22, 0.9) 100%);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.sobre-text h2 {
+  margin-top: 20px;
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+  color: #ffd600;
+  font-weight: 600;
+}
+
+.sobre-text h2:first-child {
+  margin-top: 0;
+}
+
+.sobre-text p {
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* A área do texto personalizado */
+.sobre-highlight {
+  padding: 16px 20px;
+  border-left: 4px solid #ffd600;
+  background: linear-gradient(135deg, rgba(255, 214, 0, 0.1) 0%, rgba(255, 184, 0, 0.05) 100%);
+  border-radius: 0 12px 12px 0;
+  margin: 20px 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Call-to-Action Section */
+.sobre-cta {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.btn-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #ffd600 0%, #ffb800 50%, #ff9500 100%);
+  color: #000;
+  text-decoration: none;
+  padding: 16px 32px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(255, 214, 0, 0.4);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn-home:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(255, 214, 0, 0.6);
+  background: linear-gradient(135deg, #ffb800 0%, #ff9500 50%, #ff7700 100%);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-home:hover::before {
+  left: 100%;
+}
+
+.btn-home i:first-child {
+  font-size: 1.2rem;
+}
+
+.btn-home i:last-child {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.btn-home:hover i:last-child {
+  transform: translateX(5px);
+}
+
+/* IMAGEM LATERAL */
+.sobre-image {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.store-image {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 214, 0, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.store-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(255, 214, 0, 0.2);
+}
+
+/* ======== RESPONSIVIDADE ======== */
+
+@media (max-width: 900px) {
+  .sobre-main {
+    grid-template-columns: 1fr;
+    padding: 120px 16px 120px;
+    gap: 30px;
+  }
+
+  .sobre-image {
+    order: -1; /* Opcional: imagem aparece antes do texto no mobile */
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .sobre-main {
+    padding: 100px 12px 100px;
+  }
+
+  .sobre-text {
+    padding: 24px 20px;
+  }
+
+  .sobre-text h2 {
+    font-size: 1.1rem;
+  }
+
+  .sobre-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .sobre-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .btn-home {
+    padding: 14px 24px;
+    font-size: 1rem;
+    gap: 8px;
+  }
+
+  .sobre-highlight {
+    padding: 12px 16px;
+    font-size: 0.95rem;
+  }
+}

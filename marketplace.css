@@ -1,0 +1,224 @@
+/* ===== ESTILOS ESPECÍFICOS DO MARKETPLACE ===== */
+
+.market-body {
+  min-height: 100vh;
+  font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #ffffff;
+  background: #000;
+  background-image: url("imagem/fundo.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* Overlay escurecido para dar contraste */
+.market-body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.9)
+  );
+  z-index: -1;
+}
+
+/* ===== MARKETPLACE ===== */
+
+.market-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 140px 16px 120px;
+}
+
+.market-hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.market-hero h1 {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.market-subtitle {
+  margin-top: 8px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 1px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.products-section {
+  margin-top: 48px;
+}
+
+.products-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.products-header h2 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+  color: #ffd600;
+  font-weight: 600;
+}
+
+.products-header p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 8px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.product-card {
+  background: radial-gradient(circle at top left, rgba(52, 62, 96, 0.7) 0, rgba(18, 22, 40, 0.8) 40%, rgba(5, 8, 22, 0.9) 100%);
+  border-radius: 20px;
+  padding: 24px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  border-color: rgba(255, 214, 0, 0.3);
+}
+
+.product-image {
+  height: 100px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  font-size: 2.5rem;
+  color: #000;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+/* Gradientes para os cards */
+.product-image-1 { background: radial-gradient(circle at top, #ffd600, #ffb800); }
+.product-image-2 { background: radial-gradient(circle at top, #00ffc6, #00a085); }
+.product-image-3 { background: radial-gradient(circle at top, #ff7af2, #c44bc4); }
+.product-image-4 { background: radial-gradient(circle at top, #7aa7ff, #4a7cff); }
+.product-image-5 { background: radial-gradient(circle at top, #ffb86c, #ff9500); }
+.product-image-6 { background: radial-gradient(circle at top, #9effa1, #5bff60); }
+
+.product-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.product-tagline {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+}
+
+.product-price {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #ffd600;
+  margin-top: 8px;
+}
+
+/* Botões */
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ffd600 0%, #ffb800 100%);
+  color: #000;
+  box-shadow: 0 8px 20px rgba(255, 214, 0, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(255, 214, 0, 0.4);
+  background: linear-gradient(135deg, #ffb800 0%, #ff9500 100%);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #ffd600;
+  color: #ffd600;
+}
+
+.btn-secondary:hover {
+  background: #ffd600;
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 214, 0, 0.3);
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .market-main {
+    padding: 120px 16px 120px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .market-main {
+    padding: 100px 12px 100px;
+  }
+
+  .market-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .product-card {
+    padding: 20px;
+  }
+
+  .product-image {
+    height: 80px;
+    font-size: 2rem;
+  }
+}
